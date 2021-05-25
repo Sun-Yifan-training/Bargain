@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>新規追加画面</title>
+    <link rel="stylesheet" href="../../static/css/style.css"
+          th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>新規追加</h1>
+<a href="index.html" th:href="@{index}">一覧へ</a>
+<form method="post" action="index.html" th:action="@{insertComplete}">
+    <table>
+
+        <tr>
+            <th>特売内容</th>
+            <td>
+                <input type="text" name="name">
+            </td>
+        </tr>
+
+        <tr>
+            <th>曜日ID</th>
+            <td>
+
+
+                <form>
+                    <select name="weekdayId">
+                        <option value="1">月曜日</option>
+                        <option value="2">火曜日</option>
+                        <option value="3">水曜日</option>
+                        <option value="4">木曜日</option>
+                        <option value="5">金曜日</option>
+                        <option value="6">土曜日</option>
+                        <option value="7">日曜日</option>
+                    </select>
+                </form>
+
+            </td>
+
+        <tr>
+            <th>種類</th>
+            <td>
+
+
+                <form>
+                    <select name="category">
+                        <option value="肉">肉</option>
+                        <option value="惣菜">惣菜</option>
+                        <option value="会計">会計</option>
+                        <option value="果物">果物</option>
+                    </select>
+                </form>
+
+            </td>
+        </tr>
+    </table>
+    <button>登録</button>
+</form>
+</body>
+</html>

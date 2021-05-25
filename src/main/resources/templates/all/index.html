@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/css/style.css"
+          th:href="@{/css/style.css}">
+</head>
+<body>
+    <h1> 特売情報 </h1>
+    <form action="index.html" th:action="@{findByNameLike}">
+      商品キーワード: <input type="text" name="keyword">
+      <button>特売検索</button>
+    </form>
+
+    <form action="index.html" th:action="@{findByCategory}">
+        曜日別一覧: <select name="keyword">
+                            <option value=1>月曜日</option>
+                            <option value=2>火曜日</option>
+                            <option value=3>水曜日</option>
+                            <option value=4>木曜日</option>
+                            <option value=5>金曜日</option>
+                            <option value=6>土曜日</option>
+                            <option value=7>日曜日</option>
+                        </select>
+        <button>特売検索</button>
+    </form>
+
+
+    <a href="insertMain.html" th:href="@{insertMain}">新規追加へ</a>
+
+    <table>
+
+      <tr>
+          <th>id</th>
+          <th>曜日</th>
+          <th>種類</th>
+          <th>特売</th>
+      </tr>
+
+      <tr th:each="bargain : ${bargainList}" th:object="${bargain}">
+          <td th:text = "*{id}">0</td>
+          <td th:text = "*{weekdayName}">月</td>
+          <td th:text = "*{category}">月</td>
+          <td th:text = "*{name}"> 30%off </td>
+      </tr>
+    </table>
+</body>
+</html>
