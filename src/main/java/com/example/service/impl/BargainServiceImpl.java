@@ -38,6 +38,7 @@ public class BargainServiceImpl implements BargainService {
         return  bargainList;
     }
 
+
     @Override
     @Transactional(readOnly = false)
     public void insert(Bargain bargain){

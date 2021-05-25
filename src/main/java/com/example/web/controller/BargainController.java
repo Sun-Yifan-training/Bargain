@@ -21,6 +21,7 @@ public class BargainController {
 
     public BargainController(BargainService bargainService){
         this.bargainService = bargainService;
+
     }
 
     @GetMapping("/index")
@@ -47,7 +48,10 @@ public class BargainController {
 
     @GetMapping("/findDate")
     public String findDate(Model model){
-        //int day = Calendar.get(Calendar.DAY_OF_WEEK) ;
+        Calendar calendar = Calendar.getInstance();
+        int keyword = calendar.get(Calendar.DAY_OF_WEEK) -1;
+        List<Bargain> bargainList = bargainService.findByCategory(keyword);
+        model.addAttribute("bargainList", bargainList);
         return "all/index";
     }
 
